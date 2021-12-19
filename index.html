@@ -1,0 +1,188 @@
+<script id="skyVS">
+  varying vec2 vUv;
+varying float time;
+uniform float delta;
+
+void main()
+{
+    vUv = uv;
+	gl_Position = projectionMatrix * modelViewMatrix *  vec4(position,1.0);
+}
+
+</script>
+
+<script id="skyFS">
+      #ifdef GL_ES
+precision highp float;
+#endif
+
+uniform vec2 resolution;
+uniform float time;
+uniform float delta;
+
+varying vec2 vUv;        
+
+void main(void)
+{
+	vec2 position = vUv;
+
+	float red = 0.1;
+	float green = 0.0;
+	float blue = 0.1;
+	
+	
+	if (vUv.y < 0.85) {
+		float offset = 0.1 + (0.85 - vUv.y) * (1.0 + sin(delta * 0.1) * 1.0);
+	
+		blue = offset;
+		red = offset;
+		
+		//blue *= (1.1 + cos(vUv.x + delta * 0.3) * 0.05);
+		blue *= 1.0 + cos(vUv.x + delta * 0.3) * 0.05;
+		
+	}
+	
+	if (vUv.y < 0.8) {
+		blue += 0.0 + cos(vUv.x + delta * 0.2) * 0.01;
+	
+	}
+
+    vec3 rgb = vec3(red, green, blue);
+    vec4 color = vec4(rgb, 1.0);
+    
+	gl_FragColor = color;	
+}
+    </script>
+
+    <canvas id="ground"></canvas>
+		<div id="whitepanel"></div>
+		
+		<div id="deck">
+			<section id="cover" class="cover slide slide--green" data-x="0" data-y="0" data-z="0">
+        <h2>the maths great fall</h2>
+        <h3>scroll down</h3>
+			</section>
+		
+			<section class="section">
+				<figure class="right">
+					<figcaption>
+						<h2>Arithmetic</h2>
+						<p>Managing money $$$
+              
+Balancing the checkbook.
+              
+Shopping for the best price.
+              
+Preparing food.
+            Figuring out distance, time and cost for travel.
+.</p>
+					</figcaption>
+				</figure>
+			</section>
+		
+			<section class="section">
+				<figure class="left">
+					<figcaption>
+						<h2>Algebra</h2>
+						<p>Morning Routine.
+Business & Finance Management.
+Sports.
+Cooking.
+Technology.
+Logical Thinking.
+Health & Fitness.Proffesional Advancement</p>
+					</figcaption>
+				</figure>
+			</section>
+		
+			<section class="section">
+				<figure class="right">
+					<figcaption>
+						<h2>Geometry </h2>
+						<p>Construction of Biuldings Graphical Designing Measuring Orbits and Planets (Astronmy) Interior design.</p>
+					</figcaption>
+				</figure>
+			</section>
+		
+			<section class="section">
+				<figure class="left">
+					<figcaption>
+						<h2>Calculus</h2>
+						<p>safety of vehicles.ePayment using credit cards. Space Technology.used in Rocket Science.For making concepts of other fields of maths more cleare</p>
+					</figcaption>
+				</figure>
+			</section>
+			
+			<section class="section">
+				<figure class="right">
+					<figcaption>
+						<h2>Probability</h2>
+						<p>sports, weather reports, blood samples, predicting the sex of the baby in the womb, congenital disabilities, statics.</p>
+					</figcaption>
+				</figure>
+			</section>
+		
+			<section class="section">
+				<figure class="left">
+					<figcaption>
+						<h2>Statistics</h2>
+						<p>Making Census.Knowing Growth. Understanding ones companys market and reach  </p>
+					</figcaption>
+				</figure>
+			</section>
+			
+			<section class="section">
+				<figure class="right">
+					<figcaption>
+						<h2>Number Theory.</h2>
+						<p>The best known application of number theory is public key cryptography. Such as the ability to make secure online transactions. Random number generation. </p>
+					</figcaption>
+				</figure>
+			</section>
+		
+			<section class="section">
+				<figure class="left">
+					<figcaption>
+						<h2>Trigonometry</h2>
+						<p>Measure Height of a Building or a Mountain.Aviation.Criminology.Marine Biology.Navigation.Used in compass technology</p>
+					</figcaption>
+				</figure>
+			</section>
+			
+			<section class="section">
+				<figure class="right">
+					<figcaption>
+						<h2>Mensuration</h2>
+						<p>Amount of paint required to cover a certain surface area.Fencing needed for the perimeter of a garden.Pavement tessellation of a pathway.
+Volume of soil needed to fill in a ditch.
+The distance around a circular race track. </p>
+					</figcaption>
+				</figure>
+			</section>
+		
+			<section class="section">
+				<figure class="left">
+					<figcaption>
+						<h2>Set Theory</h2>
+						<p>In Kitchen.
+School Bags. 
+Shopping Malls. When we go shopping in a mall, we all have noticed that there are separate portions for each kind of things. 
+Universe.
+Playlist.
+Rules.
+Representative House.</p>
+					</figcaption>
+				</figure>
+			</section>
+			
+			<section class="section">
+				<figure class="right">
+					<figcaption>
+						<h2>Analysis</h2>
+						<p>Necessary background for Measure Theory.Finance, Signal Processing.Wireless Communications.Topological Data Analysis</p>
+					</figcaption>
+				</figure>
+			</section>
+	
+		</div>
+		<script src="//use.edgefonts.net/open-sans-condensed:n3,i3,n7;open-sans.js"></script>
